@@ -7,6 +7,38 @@ import 'package:flutter_research_gnp/theme/colors.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  Widget _buildBottomNavigationBar(
+    BuildContext context,
+    TabsRouter tabsRouter,
+  ) {
+    return BottomNavigationBar(
+      currentIndex: tabsRouter.activeIndex,
+      onTap: tabsRouter.setActiveIndex,
+      items: const [
+        BottomNavigationBarItem(
+          label: 'Input Score',
+          icon: Icon(Icons.note),
+        ),
+        BottomNavigationBarItem(
+          label: 'Navi',
+          icon: Icon(Icons.golf_course),
+        ),
+        BottomNavigationBarItem(
+          label: 'Score Card',
+          icon: Icon(Icons.scoreboard),
+        ),
+        BottomNavigationBarItem(
+          label: 'Menu',
+          icon: Icon(Icons.menu),
+        ),
+      ],
+      backgroundColor: CustomColor.darkGreen,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.white24,
+      type: BottomNavigationBarType.fixed,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
@@ -20,32 +52,7 @@ class HomePage extends StatelessWidget {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
           body: child,
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: tabsRouter.activeIndex,
-            onTap: tabsRouter.setActiveIndex,
-            items: const [
-              BottomNavigationBarItem(
-                label: 'Input Score',
-                icon: Icon(Icons.note),
-              ),
-              BottomNavigationBarItem(
-                label: 'Navi',
-                icon: Icon(Icons.golf_course),
-              ),
-              BottomNavigationBarItem(
-                label: 'Score Card',
-                icon: Icon(Icons.scoreboard),
-              ),
-              BottomNavigationBarItem(
-                label: 'Menu',
-                icon: Icon(Icons.menu),
-              ),
-            ],
-            backgroundColor: CustomColor.darkGreen,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.white24,
-            type: BottomNavigationBarType.fixed,
-          ),
+          bottomNavigationBar: _buildBottomNavigationBar(context, tabsRouter),
         );
       },
     );

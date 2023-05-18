@@ -7,4 +7,12 @@ abstract class HomePageEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class IsHidingBottomBarToggle extends HomePageEvent {}
+class IsHidingBottomBarOnChange extends HomePageEvent {
+  const IsHidingBottomBarOnChange({
+    required this.isHiding,
+  });
+  final bool isHiding;
+
+  @override
+  List<Object> get props => [isHiding];
+}

@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_research_gnp/ui/pages/home/home_page.dart';
-import 'package:flutter_research_gnp/ui/pages/home/tabs/input_score_page.dart';
-import 'package:flutter_research_gnp/ui/pages/home/tabs/menu_page.dart';
-import 'package:flutter_research_gnp/ui/pages/home/tabs/navi_page.dart';
-import 'package:flutter_research_gnp/ui/pages/home/tabs/score_page.dart';
+import 'package:flutter_research_gnp/ui/pages/home/tabs/input_score/input_score_page.dart';
+import 'package:flutter_research_gnp/ui/pages/home/tabs/menu/menu_page.dart';
+import 'package:flutter_research_gnp/ui/pages/home/tabs/navi/navi_page.dart';
+import 'package:flutter_research_gnp/ui/pages/home/tabs/score/score_page.dart';
 
 part 'app_router.gr.dart';
 

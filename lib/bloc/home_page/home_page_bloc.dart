@@ -6,13 +6,13 @@ part 'home_page_state.dart';
 
 class HomePageBloc extends Bloc<HomePageEvent, HomePageState> {
   HomePageBloc() : super(const HomePageState()) {
-    on<IsHidingBottomBarToggle>(_isHidingBottomBarToggle);
+    on<IsHidingBottomBarOnChange>(_isHidingBottomBarOnChange);
   }
 
-  Future<void> _isHidingBottomBarToggle(
-    IsHidingBottomBarToggle event,
+  void _isHidingBottomBarOnChange(
+    IsHidingBottomBarOnChange event,
     Emitter<HomePageState> emit,
-  ) async {
-    emit(state.copyWith(isHidingBottomBar: !state.isHidingBottomBar));
+  ) {
+    emit(state.copyWith(isHidingBottomBar: event.isHiding));
   }
 }
