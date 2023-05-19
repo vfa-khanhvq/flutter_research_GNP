@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_research_gnp/ui/widgets/button/elevated_button/elevated_button.dart';
-import 'package:flutter_research_gnp/ui/widgets/button/text_button/text_button.dart';
+import 'package:flutter_research_gnp/ui/widgets/button/custom_elevated_button/custom_elevated_button.dart';
+import 'package:flutter_research_gnp/ui/widgets/button/custom_text_button/custom_text_button.dart';
 
-class NumberPad extends StatelessWidget {
-  const NumberPad({super.key});
+class NumberPad extends StatefulWidget {
+  const NumberPad({required this.onPressed, super.key});
 
+  final void Function(int) onPressed;
+
+  @override
+  State<NumberPad> createState() => _NumberPadState();
+}
+
+class _NumberPadState extends State<NumberPad> {
   @override
   Widget build(BuildContext context) {
     const buttonPadding = EdgeInsets.all(5);
     const buttonHeight = 60.0;
-    const textSize = 30.0;
+    const textSize = 35.0;
 
     final textStyle = TextStyle(
       color: Theme.of(context).primaryColor,
@@ -22,7 +29,7 @@ class NumberPad extends StatelessWidget {
         textSize: textSize,
         height: buttonHeight,
         onPressed: () {
-          debugPrint('$value');
+          widget.onPressed(value);
         },
         content: '$value',
       );
@@ -32,7 +39,7 @@ class NumberPad extends StatelessWidget {
       return CustomElevatedButton(
         height: buttonHeight,
         onPressed: () {
-          debugPrint('Memo');
+          // widget.onPressed('Memo');
         },
         backgroundColor: Colors.white,
         borderColor: Colors.blue,
@@ -139,7 +146,7 @@ class NumberPad extends StatelessWidget {
                   child: CustomElevatedButton(
                     height: buttonHeight,
                     onPressed: () {
-                      debugPrint('10/0');
+                      widget.onPressed(10);
                     },
                     backgroundColor: Colors.white,
                     borderColor: Theme.of(context).primaryColor,
@@ -155,7 +162,7 @@ class NumberPad extends StatelessWidget {
                           TextSpan(
                             text: '/0',
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 20,
                             ),
                           )
                         ],
